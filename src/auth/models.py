@@ -4,7 +4,7 @@ from datetime import datetime
 import uuid
 
 class User(SQLModel, table=True):
-  __tablename__ = "user"
+  __tablename__ = "users"
   uid: uuid.UUID = Field(
     sa_column=Column(
       mysql.CHAR(36),
@@ -18,6 +18,9 @@ class User(SQLModel, table=True):
   password: str
   first_name: str
   last_name: str
+  is_verified: bool = Field(
+    default=False
+  )
   created_at: datetime = Field(
     sa_column=Column(
       mysql.DATETIME,
