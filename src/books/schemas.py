@@ -1,7 +1,19 @@
 from pydantic import BaseModel
+from datetime import datetime, date
 
-class Book(BaseModel):
-    id: int
+class BookSchema(BaseModel):
+    uid: str
+    title: str  
+    author: str
+    publisher: str
+    published_date: date
+    page_count: int
+    language: str
+    created_at: datetime
+    updated_at: datetime
+
+
+class BookCreateSchema(BaseModel):
     title: str  
     author: str
     publisher: str
@@ -9,7 +21,8 @@ class Book(BaseModel):
     page_count: int
     language: str
 
-class BookUpdateModel(BaseModel):
+
+class BookUpdateSchema(BaseModel):
     title: str  
     author: str
     publisher: str
